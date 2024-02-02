@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="messageData"
+            type="apps.forever.sample.domain.model.Message" />
+    </data>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_4_dp"
+        android:layout_marginEnd="@dimen/size_4_dp"
+        android:layout_marginBottom="@dimen/size_4_dp"
+        android:elevation="@dimen/size_20_dp"
+        app:cardCornerRadius="@dimen/size_4_dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_4_dp"
+            android:layout_marginEnd="@dimen/size_4_dp">
+
+            <TextView
+                android:id="@+id/tvMessageTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{messageData.title}"
+                android:textSize="@dimen/size_15_sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Name" />
+
+            <TextView
+                android:id="@+id/tvMessageBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:gravity="center_vertical|start"
+                android:text="@{messageData.body}"
+                android:textSize="@dimen/size_12_sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMessageTitle"
+                tools:text=" class might have dependencies that are not provided or cannot be resolved by Koin. Ensure that all dependencies required by MainViewModel are properly defined and provided in your Koin module." />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_0.5_dp"
+                android:layout_marginTop="@dimen/size_3_dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/tvMessageBody" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</layout>
